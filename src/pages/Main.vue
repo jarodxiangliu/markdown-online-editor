@@ -53,7 +53,7 @@ export default {
         tab: '\t',
         counter: '999999',
         typewriterMode: true,
-        mode: 'sv',
+        mode: 'ir',
         preview: {
           delay: 100,
           show: !this.isMobile,

@@ -40,7 +40,7 @@ export default {
     initVditor() {
       const options = {
         width: '61.8%',
-        mode: 'sv',
+        mode: 'ir',
         preview: {
           delay: 1000,
           show: true,
