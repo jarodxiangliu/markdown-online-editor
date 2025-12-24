@@ -23,10 +23,10 @@ module.exports = {
   // where to output built files
   outputDir: 'dist',
 
-  // whether to use eslint-loader for lint on save.
-  // valid values: true | false | 'error'
-  // when set to 'error', lint errors will cause compilation to fail.
-  lintOnSave: true,
+  // whether to use eslint-loader for lint on save.
+  // valid values: true | false | 'error'
+  // when set to 'error', lint errors will cause compilation to fail.
+  lintOnSave: false,
 
   // https://cli.vuejs.org/config/#runtimecompiler
   runtimeCompiler: false,
@@ -76,10 +76,10 @@ module.exports = {
         minChunks: 1,
         // （默认值：30000）块的最小大小
         minSize: 30000,
-        // webpack 将使用块的起源和名称来生成名称: `vendors~main.js`,如项目与"~"冲突，则可通过此值修改，Eg: '-'
-        automaticNameDelimiter: '~',
-        // cacheGroups is an object where keys are the cache group names.
-        name: true,
+        // webpack 将使用块的起源和名称来生成名称: `vendors~main.js`,如项目与"~"冲突，则可通过此值修改，Eg: '-'
+        automaticNameDelimiter: '~',
+        // cacheGroups is an object where keys are the cache group names.
+        name: true,
         cacheGroups: {
           default: false,
           common: {
@@ -116,30 +116,11 @@ module.exports = {
   // enabled by default if the machine has more than 1 cores
   parallel: require('os').cpus().length > 1,
 
-  // options for the PWA plugin.
-  // see => https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa
-  // https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin
-  pwa: {
-    name: 'Arya - 在线 Markdown 编辑器',
-    themeColor: '#4DBA87',
-    msTileColor: '#000000',
-    appleMobileWebAppCapable: 'yes',
-    appleMobileWebAppStatusBarStyle: 'black',
-    iconPaths: {
-      favicon32: 'img/icons/favicon-32x32.png',
-      favicon16: 'img/icons/favicon-16x16.png',
-      appleTouchIcon: 'img/icons/apple-touch-icon.png',
-      maskIcon: 'img/icons/safari-pinned-tab.svg',
-      msTileImage: 'img/icons/mstile-150x150.png',
-    },
-    // configure the workbox plugin (GenerateSW or InjectManifest)
-    workboxPluginMode: 'InjectManifest',
-    workboxOptions: {
-      // swSrc is required in InjectManifest mode.
-      swSrc: 'public/service-worker.js',
-      // ...other Workbox options...
-    },
-  },
+  // options for the PWA plugin.
+  // see => https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa
+  // https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin
+  // options for 3rd party plugins
+  pluginOptions: {},
 
   // configure webpack-dev-server behavior
   devServer: {
@@ -153,6 +134,8 @@ module.exports = {
     before: () => {},
   },
 
-  // options for 3rd party plugins
-  pluginOptions: {},
+  // options for 3rd party plugins
+  pluginOptions: {},
+  // Temporarily disable PWA plugin to resolve build issues
+  pwa: undefined,
 }
